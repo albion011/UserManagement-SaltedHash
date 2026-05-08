@@ -71,3 +71,8 @@ entry_user.pack()
 tk.Label(app, text="Password").pack()
 entry_pass = tk.Entry(app, show="*")
 entry_pass.pack()
+
+tk.Button(app, text="Register", command=register_user).pack(pady=5)
+tk.Button(app, text="Login", command=login).pack(pady=5)
+
+app.mainloop()

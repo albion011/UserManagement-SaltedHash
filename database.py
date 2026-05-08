@@ -22,3 +22,18 @@ def init_db():
 
     conn.commit()
     conn.close()
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(100) UNIQUE,
+            password_hash TEXT,
+            salt TEXT
+        )
+    """)
+
+    conn.commit()
+    conn.close()

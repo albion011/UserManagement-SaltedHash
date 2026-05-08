@@ -1,0 +1,17 @@
+# Database config
+config.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Database file
+*.db
+
+# VS Code
+.vscode/
+
+# Environment
+.env
+venv/

@@ -59,3 +59,15 @@ def login():
             messagebox.showerror("Error", "Password gabim!")
     else:
         messagebox.showerror("Error", "User nuk ekziston!")
+
+app = tk.Tk()
+app.title("User Management")
+app.geometry("350x250")
+
+tk.Label(app, text="Username").pack()
+entry_user = tk.Entry(app)
+entry_user.pack()
+
+tk.Label(app, text="Password").pack()
+entry_pass = tk.Entry(app, show="*")
+entry_pass.pack()

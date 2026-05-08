@@ -7,5 +7,23 @@ from database import init_db
 init_db()
 
 def register_user():
-    
-    conn.close()
+    username = entry_user.get()
+    password = entry_pass.get()
+
+    if not username or not password:
+        messagebox.showwarning("Warning", "Plotëso të gjitha fushat!")
+        return
+
+    salt = generate_salt()
+    hashed = hash_password(password, salt)
+
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO users (username, password_hash, salt) VALUES (%s, %s, %s)", (username, hashed, salt))
+        conn.commit()
+        messagebox.showinfo("Success", "User u krijua!")
+    except:
+        messagebox.showerror("Error", "Username ekziston!")
+    finally:
+        conn.close()
